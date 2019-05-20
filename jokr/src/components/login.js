@@ -26,7 +26,7 @@ class Login extends React.Component {
       e.preventDefault();
       this.props
       .login(this.state.credentials)
-      .then(() => this.props.history.push('/protected'));
+//      .then(() => this.props.history.push('/protected'));
   };
 
 
@@ -37,16 +37,21 @@ class Login extends React.Component {
           <input
             type="text"
             name="username"
+            placeholder="User name"
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
 
           <input
-            type="text"
+            type="password"
             name="password"
+            placeholder=".........."
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
+
+          <div className="flex-spacer" />
+          {this.props.error && <p className="error">{this.props.error}</p>}
 
           <button>
             {this.props.loggingIn ? (
@@ -55,10 +60,20 @@ class Login extends React.Component {
               "Login"
             )}
           </button>
+
         </form>
       </div>
     );
   }
 }
 
-const mapState
+const mapStateToProps = ({ error, loggingIn }) => ({
+    error,
+    loggingIn
+});
+
+export default connect(
+    mapStateToProps,
+    { login }
+)(Login);
+
