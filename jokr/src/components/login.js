@@ -1,4 +1,4 @@
-import React from ".react";
+import React from "react";
 import { connect } from "react-redux";
 import { login } from "../actions";
 
@@ -33,7 +33,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <form onSumbit={this.login}>
+        <form onSubmit={this.login}>
           <input
             type="text"
             name="username"

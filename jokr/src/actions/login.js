@@ -10,7 +10,7 @@ export const login = creds => dispatch => {
     .post("https://jokr.herokuapp.com/api/auth/login", creds)
     .then(res => {
       console.log(res);
-      localStorage.setItem("token", res.data);
+      localStorage.setItem("token", res.data.token);
       dispatch({ type: LOGIN_SUCCESSFUL });
     })
     .catch(err => {
