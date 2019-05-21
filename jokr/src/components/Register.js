@@ -13,8 +13,10 @@ class Register extends React.Component {
 
   handleChange = e => {
     this.setState({
-      ...this.state,
-      [e.target.name]: e.target.value
+      credentials: {
+        ...this.state.credentials,
+        [e.target.name]: e.target.value
+      }
     });
   };
 
@@ -24,7 +26,7 @@ class Register extends React.Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
