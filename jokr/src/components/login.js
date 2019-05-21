@@ -13,22 +13,19 @@ class Login extends React.Component {
   };
 
   handleChange = e => {
-      this.setState({
-          credentials: {
-              ...this.state.credentials,
-              [e.target.name]: e.target.value
-            
-          }
-      })
-  }
-
-  login = e => {
-      e.preventDefault();
-      this.props
-      .login(this.state.credentials)
-//      .then(() => this.props.history.push('/protected'));
+    this.setState({
+      credentials: {
+        ...this.state.credentials,
+        [e.target.name]: e.target.value
+      }
+    });
   };
 
+  login = e => {
+    e.preventDefault();
+    this.props.login(this.state.credentials);
+    //      .then(() => this.props.history.push('/protected'));
+  };
 
   render() {
     return (
@@ -60,7 +57,6 @@ class Login extends React.Component {
               "Login"
             )}
           </button>
-
         </form>
       </div>
     );
@@ -68,12 +64,11 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = ({ error, loggingIn }) => ({
-    error,
-    loggingIn
+  error,
+  loggingIn
 });
 
 export default connect(
-    mapStateToProps,
-    { login }
+  mapStateToProps,
+  { login }
 )(Login);
-
