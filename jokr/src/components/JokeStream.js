@@ -4,15 +4,23 @@ import { connect } from "react-redux";
 import Joke from "./Joke";
 
 class JokeStream extends React.Component {
+
+
   componentDidMount() {
       this.props.getJokes();
   }
 
   render() {
+
+    if (this.props.isFetching) {
+      return <div>"Loading ...</div>
+      }
+      
+
     return (
       <div className="JokeStream">
         {this.props.jokes.map(joke => {
-          return <Joke joke={joke} />;
+          return <Joke key={joke.id} joke={joke} />;
         })}
       </div>
     );
@@ -20,9 +28,12 @@ class JokeStream extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        jokes: state.jokes,
-        getJokes: state.getJokes
+  console.log(state);
+ 
+ 
+  return {
+        jokes: state.getJokes.jokes,
+        isFetching: state.getJokes.isFetching
     };
 };
 

@@ -10,20 +10,22 @@
 import React from "react";
 import "../styles/JokeCard.css";
 
-class Joke extends React.Component {
-  render() {
+const Joke = props => {
+    console.log(props)
+  
     return (
+    
     <div className="JokeCard">
       <div className="Setup">
-        {this.props.setup}
+        {props.joke.setup}
       </div>
       <div className="Punchline">
-        {this.props.punch_line}
+        {props.joke.punch_line}
       </div>
       
     </div>
     )};
-}
+
 
 export default Joke;
 
