@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login } from "../actions";
+import "../styles/login.css";
 
 import Loader from "react-loader-spinner";
 
@@ -33,7 +34,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.login}>
+        <form className="login-form" onSubmit={this.login}>
           <input
             type="text"
             name="username"
