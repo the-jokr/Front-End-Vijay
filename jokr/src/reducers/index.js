@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
 
 import { loginReducer } from "./loginReducer";
-import {registerReducer} from './registerReducer'
+import { registerReducer } from "./registerReducer";
+import { getJokesReducer } from "./getJokesReducer";
 
 const rootReducer = combineReducers({
   login: loginReducer,
-  register: registerReducer
+  register: registerReducer,
+  getJokes: getJokesReducer,
 });
 
 export default rootReducer;
