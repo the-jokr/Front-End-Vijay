@@ -10,7 +10,7 @@ export const register = creds => dispatch => {
     .post("https://jokr.herokuapp.com/api/auth/register", creds)
     .then(res => {
       console.log(res);
-      dispatch({ type: REGISTER_SUCCESSFUL,});
+      dispatch({ type: REGISTER_SUCCESSFUL });
     })
     .catch(err => {
       console.log(err);
