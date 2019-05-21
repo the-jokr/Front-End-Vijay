@@ -1,12 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getJokes } from "../actions";
 
 class JokeWallet extends React.Component {
+  componentDidMount() {
+    this.props.getJokes();
+  }
   render() {
-    return (
-      <div>
-      </div>
-    );
+    
+    return <div />;
   }
 }
-export default connect()(JokeWallet);
+
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    jokes: state.getJokes.jokes
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getJokes }
+)(JokeWallet);
