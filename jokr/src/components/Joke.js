@@ -14,10 +14,16 @@ class Joke extends React.Component {
   render() {
     return (
     <div className="JokeCard">
-   
-
-
-
+      <div className="Setup">
+        {this.props.setup}
+      </div>
+      <div className="Punchline">
+        {this.props.punch_line}
+      </div>
+      
     </div>
-  }
+    )};
 }
+
+export default Joke;
+
