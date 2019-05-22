@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getJokes } from "../actions";
+import { getWallet } from "../actions";
 
 class JokeWallet extends React.Component {
   componentDidMount() {
-    this.props.getJokes();
+    this.props.getWallet(localStorage.getItem("userId"));
   }
   render() {
     
@@ -15,11 +15,12 @@ class JokeWallet extends React.Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    jokes: state.getJokes.jokes
+    savedJokes: state.getWallet.savedJokes,
+    submittedJokes: state.getWallet.submittedJokes
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getJokes }
+  { getWallet }
 )(JokeWallet);

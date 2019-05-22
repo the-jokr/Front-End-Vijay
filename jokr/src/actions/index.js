@@ -1,4 +1,8 @@
-export { ADDING_JOKES, ADD_SUCCESS, ADD_FAILED, addJoke } from "./addJoke";
+export { ADDING_JOKES,
+  ADD_SUCCESS,
+  ADD_FAILED,
+  addJoke
+} from "./addJoke";
 
 export {
   FETCHING_JOKES,
@@ -7,7 +11,11 @@ export {
   getJokes
 } from "./getJokes";
 
-export { LOGIN_START, LOGIN_SUCCESSFUL, LOGIN_FAILURE, login } from "./login";
+export {
+  LOGIN_START,
+  LOGIN_SUCCESSFUL,
+  LOGIN_FAILURE,
+  login } from "./login";
 
 export {
   REGISTER_START,
@@ -15,3 +23,12 @@ export {
   REGISTER_FAILURE,
   register
 } from "./register";
+
+
+export {
+  GETTING_WALLET,
+  WALLET_SUCCESS,
+  WALLET_FAILED,
+  getWallet
+} from "./getWallet";
+
