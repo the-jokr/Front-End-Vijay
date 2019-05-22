@@ -25,7 +25,7 @@ function App() {
 
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/jokestream" component={JokeStream} />
+      <PrivateRoute path="/jokestream" component={JokeStream} />
       <PrivateRoute path="/my-wallet" component={JokeWallet} />
       <PrivateRoute path="/add-joke" component={AddJokeForm} />
       

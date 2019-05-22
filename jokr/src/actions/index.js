@@ -8,7 +8,11 @@ export {
   FETCHING_JOKES,
   FETCHING_SUCCESS,
   FETCHING_FAIL,
-  getJokes
+  FETCHING_RANDOM,
+  RANDOM_SUCCESS,
+  RANDOM_FAIL,
+  getJokes,
+  getRandomJoke
 } from "./getJokes";
 
 export {
@@ -31,4 +35,12 @@ export {
   WALLET_FAILED,
   getWallet
 } from "./getWallet";
+
+
+export {
+  DELETING_JOKE,
+  DELETE_SUCCESS,
+  DELETE_FAILED,
+  deleteJoke
+} from "./deleteJoke";
 
