@@ -1,4 +1,4 @@
-export { ADDING_JOKES,
+export { 
   ADD_SUCCESS,
   ADD_FAILED,
   addJoke

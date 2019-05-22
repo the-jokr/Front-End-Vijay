@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import "../styles/Register.css";
 import { register } from "../actions";
 
 class Register extends React.Component {
@@ -28,7 +28,7 @@ class Register extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <div>
+      <div className="Register">
         <form onSubmit={this.handleSubmit}>
           Username:{" "}
           <input

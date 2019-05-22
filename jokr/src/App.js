@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter as Router, Route, Link, NavLink, withRouter } from 'react-router-dom';
 
-import { Route, Link } from "react-router-dom";
+// import { Route, Link } from "react-router-dom";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -13,11 +14,15 @@ import AddJokeForm from "./components/AddJokeForm"
 function App() {
   return (
     <div className="App">
-      <Link to="/login">Login</Link>
-      <Link to="/register">Register</Link>
-      <Link to="/my-wallet">My Jokes</Link>
-      <Link to="/jokestream">Jokes</Link>
-      <Link to="/add-joke">Add Joke</Link>
+      <nav className="nav-bar">
+      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/register">Register</NavLink>
+      <NavLink to="/my-wallet">My Jokes</NavLink>
+      <NavLink to="/jokestream">Jokes</NavLink>
+      <NavLink to="/add-joke">Add Joke</NavLink>
+      </nav>
+
+
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/jokestream" component={JokeStream} />
