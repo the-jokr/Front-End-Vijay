@@ -19,8 +19,13 @@ const Joke = props => {
       <div className="Setup">
         {props.joke.setup}
       </div>
+
       <div className="Punchline">
         {props.joke.punch_line}
+      </div>
+
+      <div className="Likes">
+        {props.joke.likes}
       </div>
       
     </div>
