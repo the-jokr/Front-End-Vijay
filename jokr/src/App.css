@@ -33,7 +33,7 @@
 }
 
 .nav-bar {
-  background-color: lightskyblue;
+  background-color: lightgray;
   min-height: 80px;
   display: flex;
   flex-direction: row;

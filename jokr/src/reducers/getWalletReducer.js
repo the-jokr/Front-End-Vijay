@@ -2,9 +2,9 @@ import { GETTING_WALLET, WALLET_SUCCESS, WALLET_FAILED } from "../actions";
 
 const initialState = {
   isFetching: false,
-  error: null,
   savedJokes: [],
-  submittedJokes: []
+  submittedJokes: [],
+  error: null
 };
 
 export const getWalletReducer = (state = initialState, action) => {
@@ -18,9 +18,9 @@ export const getWalletReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        savedJokes: action.payload,
-        submittedJokes: action.payload
-      };
+        savedJokes: action.payload.savedJokes,
+        submittedJokes: action.payload.submittedJokes
+        };
     case WALLET_FAILED:
       return {
           ...state,

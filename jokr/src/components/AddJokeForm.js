@@ -7,7 +7,7 @@ class AddJokeForm extends React.Component {
   state = {
     setup: "",
     punch_line: "",
-    author: ""
+  //  author: ""
   };
 
   handleChange = e => {
@@ -44,12 +44,12 @@ class AddJokeForm extends React.Component {
             value={this.state.punch_line}
           />
 
-          <input
+          {/* <input
             name="author"
             onChange={this.handleChange}
             placeholder="Your handle"
             value={this.state.author}
-          />
+          /> */}
 
           <button>Submit Joke</button>
         </form>

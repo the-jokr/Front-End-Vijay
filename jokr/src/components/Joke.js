@@ -28,6 +28,12 @@ const Joke = props => {
         {props.joke.likes}
       </div>
       
+
+      <div className="By">
+        {props.joke.author}
+      </div>
+
+
     </div>
     )};
 
