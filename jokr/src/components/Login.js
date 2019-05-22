@@ -30,8 +30,8 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <form className="login-form" onSubmit={this.login}>
+      <div className="login-form">
+        <form onSubmit={this.login}>
           <input
             type="text"
             name="username"

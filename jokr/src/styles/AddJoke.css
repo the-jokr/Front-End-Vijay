@@ -1,5 +1,5 @@
 
-.JokeStream {
+.AddJokeContainer {
     display: flex;
     flex-direction: column;
     background-color: goldenrod;

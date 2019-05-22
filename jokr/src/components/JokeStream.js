@@ -2,6 +2,7 @@ import React from "react";
 import { getJokes } from "../actions";
 import { connect } from "react-redux";
 import Joke from "./Joke";
+import "../styles/JokeStream.css";
 
 class JokeStream extends React.Component {
 
