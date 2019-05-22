@@ -17,15 +17,27 @@ class JokeWallet extends React.Component {
     
     return (
     <div className="WalletList">
-      <h1>My Jokes</h1>
-      <div className="my-joke-list">
+       <div className="my-joke-list">
+       <h1>My Jokes</h1>
         {this.props.submittedJokes.map(joke => (
           <div key={joke.id}>
-            <h2>{joke.setup}</h2>
-            <h2>{joke.punch_line}</h2>
+            <h3>{joke.setup}</h3>
+            <h3>{joke.punch_line}</h3>
             </div>
         ))}
       </div>
+
+      <div className="saved-jokes">
+      <h1>Saved Jokes</h1>
+        {this.props.savedJokes.map(joke => (
+          <div key={joke.id}>
+            <h3>{joke.setup}</h3>
+            <h3>{joke.punch_line}</h3>
+            </div>
+        ))}
+      </div>
+
+
     </div>
     );
         }

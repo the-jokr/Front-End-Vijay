@@ -21,7 +21,7 @@ class JokeStream extends React.Component {
     return (
       <div className="JokeStream">
         {this.props.jokes.map(joke => {
-          return <Joke key={joke.id} joke={joke} />;
+          return <Joke key={joke.id} joke={joke}  />
         })}
       </div>
     );
@@ -30,8 +30,6 @@ class JokeStream extends React.Component {
 
 const mapStateToProps = state => {
   console.log(state);
- 
- 
   return {
         jokes: state.getJokes.jokes,
         isFetching: state.getJokes.isFetching
