@@ -1,7 +1,8 @@
 import axios from "axios";
-const path = 'http://localhost:5000/api/auth/login'
 
-//const path = 'https://jokr.herokuapp.com/api/auth/register';
+//const path = 'http://localhost:5000/api/auth/login'
+
+const path = 'https://jokr.herokuapp.com/api/auth/register';
 
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESSFUL = "REGISTER_SUCCESSFUL";

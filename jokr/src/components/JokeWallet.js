@@ -4,7 +4,7 @@ import { getWallet } from "../actions";
 
 class JokeWallet extends React.Component {
   componentDidMount() {
-    this.props.getWallet(localStorage.getItem("userId"));
+    this.props.getWallet();
   }
   render() {
     

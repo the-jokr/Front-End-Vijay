@@ -18,7 +18,8 @@ export const getWalletReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        jokes: action.payload
+        savedJokes: action.payload,
+        submittedJokes: action.payload
       };
     case WALLET_FAILED:
       return {

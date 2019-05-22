@@ -1,7 +1,8 @@
 import axios from "axios";
-const path = 'http://localhost:5000/api/auth/login'
 
-//const path = 'https://jokr.herokuapp.com/api/auth/login'
+//const path = 'http://localhost:5000/api/auth/login'
+
+const path = 'https://jokr.herokuapp.com/api/auth/login'
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
