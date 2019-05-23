@@ -34,6 +34,11 @@ const Joke = props => {
       </div>
 
 
+      <div className="By">
+        {props.joke.id}
+      </div>
+
+
     </div>
     )};
 

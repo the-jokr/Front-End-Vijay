@@ -8,10 +8,24 @@ import "../styles/JokeStream.css";
 
 class JokeStream extends React.Component {
 
+  state = {
+    savingJoke: null,
+    savingJokeId: "",
+  };
 
   componentDidMount() {
       this.props.getJokes();
   }
+
+
+  saveJoke = id => {
+    this.setState({ savingJokeId: id });
+    this.props.saveJoke(id)
+   ;
+  };
+
+
+
 
   render() {
 
@@ -23,7 +37,12 @@ class JokeStream extends React.Component {
     return (
       <div className="JokeStream">
         {this.props.jokes.map(joke => {
-          return <Joke key={joke.id} joke={joke}  />
+          return <Joke key={joke.id} joke={joke}> 
+          <button
+                className="save-button"
+                onClick={() => this.saveJoke(joke.id)}
+              >Save
+              </button>
         })}
       </div>
     );
@@ -40,5 +59,7 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getJokes }
+    { getJokes,
+    saveJoke
+   }
 )(JokeStream);
