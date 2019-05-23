@@ -44,3 +44,9 @@ export {
   deleteJoke
 } from "./deleteJoke";
 
+export {
+  DELETING_WALLET_JOKE,
+  DELETE_WALLET_SUCCESS,
+  DELETE_WALLET_FAILED,
+  deleteSubmittedJoke
+} from "./deleteSubmittedJoke";

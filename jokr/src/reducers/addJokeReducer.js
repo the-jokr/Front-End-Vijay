@@ -1,23 +1,19 @@
-import { DELETING_JOKE, DELETE_SUCCESS, DELETE_FAILED   } from "../actions";
-
-
-
-
+import { ADD_SUCCESS, ADD_FAILED } from "../actions";
 
 const initialState = {
     jokes: [],
     error: null
 };
 
-export const deleteJokeReducer = (state = initialState, action) => {
+export const addJokeReducer = (state = initialState, action) => {
     switch (action.type) {
-        case DELETE_SUCCESS:
+        case ADD_SUCCESS:
             return {
                 ...state,
-                submittedJokes: action.payload,
+                jokes: action.payload,
                 error: null
             };
-            case DELETE_FAILED:
+            case ADD_FAILED:
             return {
                 ...state,
                 error: action.payload
@@ -26,4 +22,3 @@ export const deleteJokeReducer = (state = initialState, action) => {
                 return state;
 }
 };
-
