@@ -1,5 +1,7 @@
 import React from "react";
-import { getJokes, getRandomJoke } from "../actions";
+import { getJokes,
+//  getRandomJoke
+} from "../actions";
 import { connect } from "react-redux";
 import Joke from "./Joke";
 import "../styles/JokeStream.css";
