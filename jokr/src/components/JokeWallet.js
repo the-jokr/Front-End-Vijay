@@ -1,12 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getWallet } from "../actions";
+import { getWallet,
+  deleteJoke,
+  //editJoke
+} from "../actions";
 
 class JokeWallet extends React.Component {
+
+  state = {
+    deletingJoke: null,
+   
+  };
 
   componentDidMount() {
     this.props.getWallet();
     }
+
+    deleteJoke = id => {
+      this.setState({ deletingJokeId: id});
+      this.props.deleteJoke(id);
+    };
+
+
   render() {
 
     console.log(this.props);
@@ -16,19 +31,25 @@ class JokeWallet extends React.Component {
     }
     
     return (
+
     <div className="WalletList">
+      
        <div className="my-joke-list">
        <h1>My Jokes</h1>
+      
         {this.props.submittedJokes.map(joke => (
           <div key={joke.id}>
             <h3>{joke.setup}</h3>
             <h3>{joke.punch_line}</h3>
+            <button className="delete-button" onClick={() => this.deleteJoke(joke.id)}>Delete</button>
+            <button className="edit-button" onClick={() => this.editJoke(joke.id)}>Edit</button>
             </div>
         ))}
       </div>
 
       <div className="saved-jokes">
       <h1>Saved Jokes</h1>
+      
         {this.props.savedJokes.map(joke => (
           <div key={joke.id}>
             <h3>{joke.setup}</h3>
@@ -58,5 +79,8 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getWallet }
+  { getWallet,
+    deleteJoke,
+    //editJoke
+  }
 )(JokeWallet);
