@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   getWallet,
+  editJoke,
   deleteJoke,
   deleteSubmittedJoke,
   //editJoke
@@ -11,6 +12,7 @@ class JokeWallet extends React.Component {
   state = {
     deletingJoke: null,
     deletingJokeId: "",
+    edittingJokeId: ''
   };
 
   componentDidMount() {
@@ -22,10 +24,10 @@ class JokeWallet extends React.Component {
  //   this.props
  //   .deleteSubmittedJoke(id)
     this.props.deleteJoke(id)
+    .then(() => this.props.getWallet())
 //    .then(res => this.props.history.push("jokewallet"))
     ;
   };
-
 
   render() {
     console.log(this.props);
@@ -88,7 +90,8 @@ export default connect(
   {
     getWallet,
     deleteJoke,
-    deleteSubmittedJoke
+    deleteSubmittedJoke,
+    editJoke
     //editJoke
   }
 )(JokeWallet);

@@ -57,3 +57,12 @@ export {
   SAVE_FAILED,
   saveJoke
 } from "./saveJoke";
+
+
+export {
+  EDITTING_WALLET_JOKE,
+  EDIT_WALLET_SUCCESS,
+  editJoke
+} from "./editSubmittedJoke";
+
+

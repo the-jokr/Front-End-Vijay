@@ -41,7 +41,7 @@ class JokeStream extends React.Component {
             <Joke key={joke.id} joke={joke} />
             <button
               className="save-button"
-              onClick={() => this.saveJoke({joke_id: joke.id, author_id: joke.author_id, user_id: 4})}
+              onClick={() => this.saveJoke({joke_id: joke.id, author_id: joke.author_id, user_id: localStorage.getItem("userId")})}
             >
               Save
             </button>

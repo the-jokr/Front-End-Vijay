@@ -38,8 +38,7 @@ const Joke = props => {
         {props.joke.id}
       </div>
 
-
-    </div>
+      </div>
     )};
 
 
