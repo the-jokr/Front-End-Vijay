@@ -1,0 +1,4 @@
+[build]
+base = "/jokr"
+publish = "jokr/build/"
+command = "yarn build"
