@@ -13,7 +13,7 @@ class JokeStream extends React.Component {
   state = {
     savingJoke: null,
     //   savingJokeId: ""
-    input: ''
+    input: ""
   };
 
   componentDidMount() {
@@ -30,19 +30,28 @@ class JokeStream extends React.Component {
       ...this.state,
       [e.target.name]: e.target.value
     });
-  }
+  };
 
   render() {
     if (this.props.isFetching) {
       return <div>"Loading ...</div>;
     }
 
-    let jokes = [...this.props.jokes].filter(joke => joke.setup.includes(this.state.input) || joke.punch_line.includes(this.state.input));
-    
+    let jokes = [...this.props.jokes].filter(
+      joke =>
+        joke.setup.includes(this.state.input) ||
+        joke.punch_line.includes(this.state.input)
+    );
 
     return (
       <div className="JokeStream">
-        <input type="text" placeholder="search for joke" name="input" value={this.state.input} onChange={this.handleChange}/>
+        <input
+          type="text"
+          placeholder="search for joke"
+          name="input"
+          value={this.state.input}
+          onChange={this.handleChange}
+        />
 
         {/* <div className="RandomJoke" /> */}
         {jokes.map(joke => {
