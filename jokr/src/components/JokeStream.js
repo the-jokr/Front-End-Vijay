@@ -11,8 +11,9 @@ import "../styles/JokeCard.css";
 
 class JokeStream extends React.Component {
   state = {
-    savingJoke: null
+    savingJoke: null,
     //   savingJokeId: ""
+    input: ''
   };
 
   componentDidMount() {
@@ -24,15 +25,27 @@ class JokeStream extends React.Component {
     this.props.saveJoke(joke);
   };
 
+  handleChange = e => {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    });
+  }
+
   render() {
     if (this.props.isFetching) {
       return <div>"Loading ...</div>;
     }
 
+    let jokes = [...this.props.jokes].filter(joke => joke.setup.includes(this.state.input) || joke.punch_line.includes(this.state.input));
+    
+
     return (
       <div className="JokeStream">
+        <input type="text" placeholder="search for joke" name="input" value={this.state.input} onChange={this.handleChange}/>
+
         {/* <div className="RandomJoke" /> */}
-        {this.props.jokes.map(joke => {
+        {jokes.map(joke => {
           return (
             <div className="JokeCardContainer">
               <Joke key={joke.id} joke={joke} />
