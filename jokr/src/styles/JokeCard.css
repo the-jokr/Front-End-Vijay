@@ -10,15 +10,24 @@
     box-shadow: 0px 10px 15px grey;
     align-items: center
   }
-/* 
-  .setup {
+
+  .Setup {
+    font-size: 25px;
+    color: #FF0000;
 
   }
 
-  .punchline {
+  .Punchline {
+    font-size: 20px;
+    color: black;
 
+  }
 
-  } */
+  .By{
+    font-size: 15px;
+    color: blue
+  }
+
 
   .button {
    

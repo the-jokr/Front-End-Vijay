@@ -23,20 +23,20 @@ const Joke = props => {
       <div className="Punchline">
         {props.joke.punch_line}
       </div>
-
+{/* 
       <div className="Likes">
-        {props.joke.likes}
+        Likes: {props.joke.likes}
       </div>
-      
+       */}
 
       <div className="By">
-        {props.joke.author}
+        Author: {props.joke.author}
       </div>
 
-
-      <div className="By">
-        {props.joke.id}
-      </div>
+{/* 
+      <div className="id">
+        JokeID: {props.joke.id}
+      </div> */}
 
       </div>
     )};
