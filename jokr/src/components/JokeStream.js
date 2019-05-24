@@ -37,10 +37,10 @@ class JokeStream extends React.Component {
            </div>
         {this.props.jokes.map(joke => {
           return (
-          <div>
+          <div className="JokeCard">
             <Joke key={joke.id} joke={joke} />
             <button
-              className="save-button"
+              className="button"
               onClick={() => this.saveJoke({joke_id: joke.id, author_id: joke.author_id, user_id: localStorage.getItem("userId")})}
             >
               Save

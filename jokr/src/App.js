@@ -9,17 +9,22 @@ import Register from "./components/Register";
 import JokeWallet from "./components/JokeWallet";
 import JokeStream from "./components/JokeStream"
 import PrivateRoute from "./PrivateRoute";
-import AddJokeForm from "./components/AddJokeForm"
+import AddJokeForm from "./components/AddJokeForm";
+import Logo from "./assets/Logo";
+
 
 function App() {
   return (
     <div className="App">
       <nav className="nav-bar">
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/register">Register</NavLink>
-      <NavLink to="/my-wallet">My Jokes</NavLink>
-      <NavLink to="/jokestream">Jokes</NavLink>
-      <NavLink to="/add-joke">Add Joke</NavLink>
+      
+      <div><img src={Logo} alt="Logo" height="25" width="25"/></div>
+      
+      <NavLink to="/login">LOGIN</NavLink>
+      {/* <NavLink to="/register">Register</NavLink> */}
+      <NavLink to="/my-wallet">MY JOKES</NavLink>
+      <NavLink to="/jokestream">JOKE FEED</NavLink>
+      {/* <NavLink to="/add-joke">Add Joke</NavLink> */}
       </nav>
 
 
@@ -34,3 +39,4 @@ function App() {
 }
 
 export default App;
+

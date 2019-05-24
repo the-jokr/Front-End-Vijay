@@ -8,6 +8,8 @@ import {
   //editJoke
 } from "../actions";
 
+import { Link} from 'react-router-dom';
+
 import EditJokeForm from "./editJokeForm";
 
 class JokeWallet extends React.Component {
@@ -46,16 +48,16 @@ class JokeWallet extends React.Component {
           {this.props.submittedJokes.map(joke => (
             <div key={joke.id} >
               {!this.state.edittingJoke && (
-                <div >
+                <div className="JokeCard">
                   <h3>{joke.setup}</h3>
                   <h3>{joke.punch_line}</h3>
                   <button
-                    className="delete-button"
+                    className="button"
                     onClick={() => this.deleteJoke(joke.id)}
                   >
                     Delete
                   </button>
-                  <button className="edit-button" onClick={this.openEditForm}>
+                  <button className="button" onClick={this.openEditForm}>
                     Edit
                   </button>
                 </div>
@@ -67,13 +69,28 @@ class JokeWallet extends React.Component {
           ))}
         </div>
 
+        <div className="button">
+
+        <Link to="/add-joke">
+                <button color="white" className="is-rounded">
+                  <span>Add a Joke</span>
+                </button>
+              </Link>
+
+
+
+        </div>
+
         <div className="saved-jokes">
           <h1>Saved Jokes</h1>
+          
 
           {this.props.savedJokes.map(joke => (
+            <div className="JokeCard">
             <div key={joke.id}>
               <h3>{joke.setup}</h3>
               <h3>{joke.punch_line}</h3>
+            </div>
             </div>
           ))}
         </div>
