@@ -10,16 +10,13 @@ import JokeWallet from "./components/JokeWallet";
 import JokeStream from "./components/JokeStream"
 import PrivateRoute from "./PrivateRoute";
 import AddJokeForm from "./components/AddJokeForm";
-import Logo from "./assets/Logo";
-
+// src/assets/Logo.png
 
 function App() {
   return (
     <div className="App">
       <nav className="nav-bar">
-      
-      <div><img src={Logo} alt="Logo" height="25" width="25"/></div>
-      
+      <img src="Logo.png" alt="Logo" height="175" width="250"/>
       <NavLink to="/login">LOGIN</NavLink>
       {/* <NavLink to="/register">Register</NavLink> */}
       <NavLink to="/my-wallet">MY JOKES</NavLink>

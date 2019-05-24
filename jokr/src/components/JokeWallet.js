@@ -8,9 +8,10 @@ import {
   //editJoke
 } from "../actions";
 
+import JokeCard from "./JokeCard";
+
 import { Link} from 'react-router-dom';
 
-import EditJokeForm from "./editJokeForm";
 
 class JokeWallet extends React.Component {
   state = {
@@ -29,9 +30,9 @@ class JokeWallet extends React.Component {
     this.props.deleteJoke(id).then(() => this.props.getWallet());
   };
 
-  openEditForm = () => {
-    this.setState({ edittingJoke: !this.state.edittingJoke });
-  };
+  // openEditForm = () => {
+  //   this.setState({ edittingJoke: !this.state.edittingJoke });
+  // };
 
   render() {
     console.log(this.props);
@@ -46,34 +47,15 @@ class JokeWallet extends React.Component {
           <h1>My Jokes</h1>
 
           {this.props.submittedJokes.map(joke => (
-            <div key={joke.id} >
-              {!this.state.edittingJoke && (
-                <div className="JokeCard">
-                  <h3>{joke.setup}</h3>
-                  <h3>{joke.punch_line}</h3>
-                  <button
-                    className="button"
-                    onClick={() => this.deleteJoke(joke.id)}
-                  >
-                    Delete
-                  </button>
-                  <button className="button" onClick={this.openEditForm}>
-                    Edit
-                  </button>
-                </div>
-              )}
-              {this.state.edittingJoke && (
-                <EditJokeForm joke={joke} closeForm={this.openEditForm} />
-              )}
-            </div>
+            < JokeCard key={joke.id} joke={joke} deleteJoke={this.deleteJoke} />
           ))}
         </div>
 
-        <div className="button">
+        <div className="AddJokeDiv">
 
         <Link to="/add-joke">
                 <button color="white" className="is-rounded">
-                  <span>Add a Joke</span>
+                  Add a Joke
                 </button>
               </Link>
 

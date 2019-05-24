@@ -7,11 +7,12 @@ import {
 import { connect } from "react-redux";
 import Joke from "./Joke";
 import "../styles/JokeStream.css";
+import "../styles/JokeCard.css";
 
 class JokeStream extends React.Component {
   state = {
-    savingJoke: null,
- //   savingJokeId: ""
+    savingJoke: null
+    //   savingJokeId: ""
   };
 
   componentDidMount() {
@@ -19,7 +20,7 @@ class JokeStream extends React.Component {
   }
 
   saveJoke = joke => {
- //   this.setState({ savingJokeId: id });
+    //   this.setState({ savingJokeId: id });
     this.props.saveJoke(joke);
   };
 
@@ -29,23 +30,25 @@ class JokeStream extends React.Component {
     }
 
     return (
-
-       <div className="JokeStream">
-         <div className="RandomJoke">
-
-           
-           </div>
+      <div className="JokeStream">
+        {/* <div className="RandomJoke" /> */}
         {this.props.jokes.map(joke => {
           return (
-          <div className="JokeCard">
-            <Joke key={joke.id} joke={joke} />
-            <button
-              className="button"
-              onClick={() => this.saveJoke({joke_id: joke.id, author_id: joke.author_id, user_id: localStorage.getItem("userId")})}
-            >
-              Save
-            </button>
-          </div>);
+            <div className="JokeCardContainer">
+              <Joke key={joke.id} joke={joke} />
+              <button
+                onClick={() =>
+                  this.saveJoke({
+                    joke_id: joke.id,
+                    author_id: joke.author_id,
+                    user_id: localStorage.getItem("userId")
+                  })
+                }
+              >
+                Save
+              </button>
+            </div>
+          );
         })}
       </div>
     );
