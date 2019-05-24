@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { editJoke } from "../actions";
+import { editJoke, getWallet } from "../actions";
 // import "../styles/AddJoke.css";
 
 class EditJokeForm extends React.Component {
   state = {
-    setup: this.props.setup,
-    punch_line: this.props.punch_line,
-    jokeid: this.props.id
+    setup: this.props.joke.setup,
+    punch_line: this.props.joke.punch_line,
+    id: this.props.joke.id
   //  author: ""
   }
 
@@ -18,20 +18,21 @@ class EditJokeForm extends React.Component {
     });
   };
 
-
-  editJoke = id => {
-    this.setState({ edittingJokeId: id });
-    this.props.editJoke(id)
+  editJoke = e => {
+    console.log(this.state)
+    e.preventDefault()  
+    this.props.editJoke(this.state)
     .then(() => this.props.getWallet())
+    .then(() => this.props.closeForm())
     ;
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props
-    .editJoke(this.state)
-    .then(res => this.props.history.push("/jokestream"));
-  };
+//   handleSubmit = e => {
+//     e.preventDefault();
+//     this.props
+//     .editJoke(this.state)
+//     .then(res => this.props.history.push("/jokestream"));
+//   };
 
   render() {
     console.log(this.props);
@@ -61,7 +62,7 @@ class EditJokeForm extends React.Component {
             value={this.state.author}
           /> */}
 
-          <button>Save and Exit</button>
+          <button onClick={this.editJoke}>Save and Exit</button>
         </form>
       </div>
     );
@@ -70,5 +71,6 @@ class EditJokeForm extends React.Component {
 
 export default connect(
   null,
-  { editJoke}
+  { getWallet,
+      editJoke}
 )(EditJokeForm);

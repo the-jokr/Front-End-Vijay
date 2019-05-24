@@ -4,15 +4,18 @@ import {
   getWallet,
   editJoke,
   deleteJoke,
-  deleteSubmittedJoke,
+  deleteSubmittedJoke
   //editJoke
 } from "../actions";
+
+import EditJokeForm from "./editJokeForm";
 
 class JokeWallet extends React.Component {
   state = {
     deletingJoke: null,
+    edittingJoke: false,
     deletingJokeId: "",
-    edittingJokeId: ''
+    edittingJokeId: ""
   };
 
   componentDidMount() {
@@ -21,12 +24,11 @@ class JokeWallet extends React.Component {
 
   deleteJoke = id => {
     this.setState({ deletingJokeId: id });
- //   this.props
- //   .deleteSubmittedJoke(id)
-    this.props.deleteJoke(id)
-    .then(() => this.props.getWallet())
-//    .then(res => this.props.history.push("jokewallet"))
-    ;
+    this.props.deleteJoke(id).then(() => this.props.getWallet());
+  };
+
+  openEditForm = () => {
+    this.setState({ edittingJoke: !this.state.edittingJoke });
   };
 
   render() {
@@ -42,21 +44,25 @@ class JokeWallet extends React.Component {
           <h1>My Jokes</h1>
 
           {this.props.submittedJokes.map(joke => (
-            <div key={joke.id}>
-              <h3>{joke.setup}</h3>
-              <h3>{joke.punch_line}</h3>
-              <button
-                className="delete-button"
-                onClick={() => this.deleteJoke(joke.id)}
-              >
-                Delete
-              </button>
-              <button
-                className="edit-button"
-                onClick={() => this.editJoke(joke.id)}
-              >
-                Edit
-              </button>
+            <div key={joke.id} >
+              {!this.state.edittingJoke && (
+                <div >
+                  <h3>{joke.setup}</h3>
+                  <h3>{joke.punch_line}</h3>
+                  <button
+                    className="delete-button"
+                    onClick={() => this.deleteJoke(joke.id)}
+                  >
+                    Delete
+                  </button>
+                  <button className="edit-button" onClick={this.openEditForm}>
+                    Edit
+                  </button>
+                </div>
+              )}
+              {this.state.edittingJoke && (
+                <EditJokeForm joke={joke} closeForm={this.openEditForm} />
+              )}
             </div>
           ))}
         </div>
@@ -81,8 +87,8 @@ const mapStateToProps = state => {
   return {
     isFetching: state.getWallet.isFetching,
     submittedJokes: state.getWallet.submittedJokes,
-    savedJokes: state.getWallet.savedJokes,
-   };
+    savedJokes: state.getWallet.savedJokes
+  };
 };
 
 export default connect(
@@ -92,6 +98,5 @@ export default connect(
     deleteJoke,
     deleteSubmittedJoke,
     editJoke
-    //editJoke
   }
 )(JokeWallet);
