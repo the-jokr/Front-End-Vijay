@@ -50,3 +50,19 @@ export {
   DELETE_WALLET_FAILED,
   deleteSubmittedJoke
 } from "./deleteSubmittedJoke";
+
+
+export {
+  SAVE_SUCCESS,
+  SAVE_FAILED,
+  saveJoke
+} from "./saveJoke";
+
+
+export {
+  EDITTING_WALLET_JOKE,
+  EDIT_WALLET_SUCCESS,
+  editJoke
+} from "./editSubmittedJoke";
+
+
