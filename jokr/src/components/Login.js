@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login } from "../actions";
+import { Link} from 'react-router-dom';
+
 import "../styles/login.css";
 
 import Loader from "react-loader-spinner";
+
 
 class Login extends React.Component {
   state = {
@@ -58,7 +61,17 @@ class Login extends React.Component {
               "Login"
             )}
           </button>
+
+          <Link to="/register">
+                <button color="white" className="is-rounded">
+                  <span>Register</span>
+                </button>
+              </Link>
+
+
+
         </form>
+        
       </div>
     );
   }

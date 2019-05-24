@@ -8,7 +8,10 @@ import {
   //editJoke
 } from "../actions";
 
-import EditJokeForm from "./editJokeForm";
+import JokeCard from "./JokeCard";
+
+import { Link} from 'react-router-dom';
+
 
 class JokeWallet extends React.Component {
   state = {
@@ -27,9 +30,9 @@ class JokeWallet extends React.Component {
     this.props.deleteJoke(id).then(() => this.props.getWallet());
   };
 
-  openEditForm = () => {
-    this.setState({ edittingJoke: !this.state.edittingJoke });
-  };
+  // openEditForm = () => {
+  //   this.setState({ edittingJoke: !this.state.edittingJoke });
+  // };
 
   render() {
     console.log(this.props);
@@ -44,36 +47,32 @@ class JokeWallet extends React.Component {
           <h1>My Jokes</h1>
 
           {this.props.submittedJokes.map(joke => (
-            <div key={joke.id} >
-              {!this.state.edittingJoke && (
-                <div >
-                  <h3>{joke.setup}</h3>
-                  <h3>{joke.punch_line}</h3>
-                  <button
-                    className="delete-button"
-                    onClick={() => this.deleteJoke(joke.id)}
-                  >
-                    Delete
-                  </button>
-                  <button className="edit-button" onClick={this.openEditForm}>
-                    Edit
-                  </button>
-                </div>
-              )}
-              {this.state.edittingJoke && (
-                <EditJokeForm joke={joke} closeForm={this.openEditForm} />
-              )}
-            </div>
+            < JokeCard key={joke.id} joke={joke} deleteJoke={this.deleteJoke} />
           ))}
+        </div>
+
+        <div className="AddJokeDiv">
+
+        <Link to="/add-joke">
+                <button color="white" className="is-rounded">
+                  Add a Joke
+                </button>
+              </Link>
+
+
+
         </div>
 
         <div className="saved-jokes">
           <h1>Saved Jokes</h1>
+          
 
           {this.props.savedJokes.map(joke => (
+            <div className="JokeCard">
             <div key={joke.id}>
               <h3>{joke.setup}</h3>
               <h3>{joke.punch_line}</h3>
+            </div>
             </div>
           ))}
         </div>
